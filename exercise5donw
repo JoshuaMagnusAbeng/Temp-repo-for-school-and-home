@@ -347,10 +347,14 @@
                  Iterator<Student> it = participant.iterator();
                  Student thisStudent= null;
                 while(it.hasNext()){
-
-                   thisStudent = it.next();
-                   thisEmail= thisStudent.getEmail;
-                   allEmail = allEmail + thisEmail + ",";
+                   
+                        thisStudent = it.next();
+                        thisEmail= thisStudent.getEmail;
+                        allEmail = allEmail + thisEmail;
+                    if(it.hasNext)
+                    allEmail = allEmail + ",";
+                    }
+              
 
                 }
                 return allEmail;
