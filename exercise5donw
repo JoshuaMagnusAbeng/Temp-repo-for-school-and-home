@@ -1,274 +1,361 @@
     // Implement your Student class here
 
-public class Student  extends User{
-private static int idSeed=10000;
-private Course degree;
-private String degreeDescription;
-
-private Student(){
-    id =Integer.toString(idSeed);
-    idSeed++;
-    domain= Domain.STUDENT;
-}
-public Student(name, familyName){
-    id =Integer.toString(idSeed);
-    idSeed++;
-    setName(name);
-    setfamilyName(familyName);
-    domain= Domain.STUDENT;
-}
-public Student(name,familyName,birthday){
-    id =Integer.toString(idSeed);
-    idSeed++;
-    setName(name);
-    setfamilyName(familyName);
-    setBirthday(birthday);
-    domain= Domain.STUDENT;
-}
-
-
-public Course getDegree(){
-    return degree;
-}
-public String getDegreeDescription(){
-    //do thhe switch case for thhe courses variable//ME, MSE, EL, IE, BMS, SCB, MME, MBB 
-    switch (degree){
-        case "ME":
-        degreeDescription = "Mechanical Engineering B.Sc.";
-        return degreeDescription;
-            break;
-        case "MSE":
-            degreeDescription = "Mechatronic Systems Engineering B.Sc.";
-            return degreeDescription;
-            break;
-        case "EL":
-      
-            degreeDescription = "Electrical Engineering B.Sc.";
-            return degreeDescription;
-            break;
+    public class Student  extends User{
+        private static int idSeed=10000;
+        private Course degree;
+        private String degreeDescription;
+        
+        private Student(){
+            id =Integer.toString(idSeed);
+            idSeed++;
+            domain= Domain.STUDENT;
+        }
+        public Student(name, familyName){
+            id =Integer.toString(idSeed);
+            idSeed++;
+            setName(name);
+            setfamilyName(familyName);
+            domain= Domain.STUDENT;
+        }
+        public Student(name,familyName,birthday){
+            id =Integer.toString(idSeed);
+            idSeed++;
+            setName(name);
+            setfamilyName(familyName);
+            setBirthday(birthday);
+            domain= Domain.STUDENT;
+        }
+        
+        
+        public Course getDegree(){
+            return degree;
+        }
+        public String getDegreeDescription(){
+            //do thhe switch case for thhe courses variable//ME, MSE, EL, IE, BMS, SCB, MME, MBB 
+            switch (degree){
+                case "ME":
+                degreeDescription = "Mechanical Engineering B.Sc.";
+                return degreeDescription;
+                    break;
+                case "MSE":
+                    degreeDescription = "Mechatronic Systems Engineering B.Sc.";
+                    return degreeDescription;
+                    break;
+                case "EL":
+              
+                    degreeDescription = "Electrical Engineering B.Sc.";
+                    return degreeDescription;
+                    break;
+                    
+                case "IE":
+                    degreeDescription = "Industrial Engineering B.Sc.";
+                    return degreeDescription;
+                    break;
+                case "BMS":
+                    degreeDescription = "Biomaterial Science B.Sc.";
+                    return degreeDescription;
+                    break;
+                case "SCB":
+                    degreeDescription = "Science Communications & BIonics B.Sc.";
+                    return degreeDescription;
+                    break;
+                case "MME":
+                    degreeDescription = "Mechanical Engineering M.Sc.";
+                    return degreeDescription;
+                    break;
+                case "MBB":
+                degreeDescription = "Bionics M.Sc.";
+                return degreeDescription;
+                    break;                     
+                default:
+                degreeDescription = "No Degree Specified";
+                return degreeDescription;
+                    break;
+            }
+        
+        }
+        public void setDegree(Course c){
+            degree = c;
+        }
+        public void setDegree(String s){
+                //do thhe switch case for thhe courses variable//
+                switch (s){
+                    case "ME":
+                    degree = Course.ME;
+                    break;
+                    case "MSE":
+                    degree = Course.MSE;
+                    break;
+                    case "EL":
+                    degree = Course.EL;
+                     break;
+                    case "IE":
+                    degree = Course.IE;
+                    break;
+                    case "BMS":
+                    degree = Course.BMS;
+                    break;
+                    case "SCB":
+                    degree = Course.SCB;
+                    break;
+                    case "MME":
+                    degree = Course.MME;
+                    break;
+                    case "MBB":
+                    degree = Course.MBB;
+                    break;
+                    default:
+                    degree = null;
+                    break;
+                }
+        }
+        
+        
+        
+        }
+        
+        public class Professor extends User
+        {
+        private Faculty faculty = TUB;
+        private Campus campus = KLE;
+        private int phone = 0;
+        
+        private Professor(){
+            domain= Domain.STAFF;
+            faculty= Faculty.TUB;
+        }
+        public Professor(id,name, familyName){
+            setName(name);
+            setfamilyName(familyName);
+            domain= Domain.STAFF;
+            faculty= Faculty.TUB;
+        }
+        public Professor(id , name,familyName,birthday){
+            setName(name);
+            setfamilyName(familyName);
+            setBirthday(birthday);
+            domain= Domain.STAFF;
+            faculty= Faculty.TUB;
+        }
+        public void setFaculty(Faculty f){
+            faculty = f;
+            if (faculty == TUB||faculty == GO||faculty == LS){
+                campus = KLE;
+            }
+            else if (faculty == KU){
+                campus = KL;
+            }
+        
+        }
+        public Faculty getFaculty(){
+            return faculty;
+        }
+        
+        public Faculty getFacultyString(Faculty f){
+            switch (f){
+                case TUB:
+                    return "Technology and Bionics";
+                    break;
+                case LS:
+                    return "Life Sciences";
+                    break;
+                case GO:
+                    return "Society and ecinomics";
+                    break;
+                case KU:
+                    return "Communication and Environment";
+                    break;
+                default:
+                    return "No Faculty Specified";
+                    break;
             
-        case "IE":
-            degreeDescription = "Industrial Engineering B.Sc.";
-            return degreeDescription;
-            break;
-        case "BMS":
-            degreeDescription = "Biomaterial Science B.Sc.";
-            return degreeDescription;
-            break;
-        case "SCB":
-            degreeDescription = "Science Communications & BIonics B.Sc.";
-            return degreeDescription;
-            break;
-        case "MME":
-            degreeDescription = "Mechanical Engineering M.Sc.";
-            return degreeDescription;
-            break;
-        case "MBB":
-        degreeDescription = "Bionics M.Sc.";
-        return degreeDescription;
-            break;                     
-        default:
-        degreeDescription = "No Degree Specified";
-        return degreeDescription;
-            break;
-    }
-
-}
-public void setDegree(Course c){
-    degree = c;
-}
-public void setDegree(String s){
-        //do thhe switch case for thhe courses variable//
-        switch (s){
-            case "ME":
-            degree = Course.ME;
-            break;
-            case "MSE":
-            degree = Course.MSE;
-            break;
-            case "EL":
-            degree = Course.EL;
-             break;
-            case "IE":
-            degree = Course.IE;
-            break;
-            case "BMS":
-            degree = Course.BMS;
-            break;
-            case "SCB":
-            degree = Course.SCB;
-            break;
-            case "MME":
-            degree = Course.MME;
-            break;
-            case "MBB":
-            degree = Course.MBB;
-            break;
-            default:
-            degree = null;
-            break;
+                }
+            }
+        
+        public void setPhone(int p){
+            if (p<=9999){
+               phone = p; 
+            }
+            else{
+                phone = 0;
+            }
+        
+            }
+        
+        public String getPhone(){
+            String phoneStr = Integer.toString(phone);
+            switch(campus ){
+                case KLE:
+                    phoneStr = "+" +"000000000"+ phoneStr //replace zeros wuith campus general number 
+                    return phoneStr;
+                    break;
+                case KL:
+                    phoneStr = "+" +"000000000"+ phoneStr //replace zeros wuith campus general number
+                    return phoneStr;
+                break;
+            }
+         
+            }
         }
-}
-
-
-
-}
-
-public class Professor extends User
-{
-private Faculty faculty = TUB;
-private Campus campus = KLE;
-private int phone = 0;
-
-private Professor(){
-    domain= Domain.STAFF;
-    faculty= Faculty.TUB;
-}
-public Professor(id,name, familyName){
-    setName(name);
-    setfamilyName(familyName);
-    domain= Domain.STAFF;
-    faculty= Faculty.TUB;
-}
-public Professor(id , name,familyName,birthday){
-    setName(name);
-    setfamilyName(familyName);
-    setBirthday(birthday);
-    domain= Domain.STAFF;
-    faculty= Faculty.TUB;
-}
-public void setFaculty(Faculty f){
-    faculty = f;
-    if (faculty == TUB||faculty == GO||faculty == LS){
-        campus = KLE;
-    }
-    else if (faculty == KU){
-        campus = KL;
-    }
-
-}
-public Faculty getFaculty(){
-    return faculty;
-}
-
-public Faculty getFacultyString(Faculty f){
-    switch (f){
-        case TUB:
-            return "Technology and Bionics";
-            break;
-        case LS:
-            return "Life Sciences";
-            break;
-        case GO:
-            return "Society and ecinomics";
-            break;
-        case KU:
-            return "Communication and Environment";
-            break;
-        default:
-            return "No Faculty Specified";
-            break;
-    
+        //User s = new User();
+        public class User{
+            private String id;
+            private String name;
+            private String familyName;
+            private Date birthday;
+            private Domain domain;
+            protected User(){
+            }
+            protected User(id,domain,name,familyName){
+            setName(name);
+            setfamilyName(familyName);
+            this.id = id;
+            this.domain = domain;
+            }
+            protected User(id,domain,name,familyName,birthday){
+            setName(name);
+            setfamilyName(familyName);
+            setBirthday(birthday);
+            this.id = id;
+            this.domain = domain;
+            }
+        
+        public String getEmail(){
+            //merge the name and thhings to make the full email//
+            switch (domain){
+                case STUDENT:
+                return name + "." + familyName + "@hsrw.org";
+                case STAFF:
+                return name + "." + familyName + "@hochschule-rhein-waal.de";
+                default:
+                return null;
+                break;
+            }
+           // return name + "." + familyName +"@hsrw.org";
         }
-    }
+        public String getFQUN(){
+           
+            switch (domain){
+                case STUDENT:
+                return id + "@" + domain + ".hsrw";
+                case STAFF:
+                return  id + "@" + domain + ".hsrw";
+                default:
+                return null;
+                break;
+            }
+         
+        }
+        
+        public String getName(){
+            return name;
+        }
+        public void setName(String s){
+            name = s;
+        }
+        
+        public String getFamilyName(){
+            return familyName;
+        }
+        public void setFamilyName(String s){
+            familyName = s;
+        }
+        
+        public int getID(){
+            return id;
+        }
+        
+        public Date getBirthday(){
+            return birthday;
+        }
+        public void setBirthday(Date d){
+        birthday =  d;
+        }
+        }
 
-public void setPhone(int p){
-    if (p<=9999){
-       phone = p; 
-    }
-    else{
-        phone = 0;
-    }
+        public class Course{
+         private String id;
+         private String name;
+         private Professor lecturer;
+         private int credit;
+         
+         private Course();
+         public Course(id,name,lecturer,credit){
+            this.id = id;
+            setName(name);
+            setLecturer(lecturer);
+            setCredit(credit);
+         }
+         public String getID(){
+             return id;
 
-    }
+         }
+         public String getName(){
+             return name;
+         }
+         public void setName(String n){
+             name = n;
+         }
+         public void setLecturer(String l){
+            lecturer = l;
+        }  
+         public Professor getLecturer(){
+             return lecturer;
+         }    
+         public int getCredit(){
+             return credit;
+         }
 
-public String getPhone(){
-    String phoneStr = Integer.toString(phone);
-    switch(campus ){
-        case KLE:
-            phoneStr = "+" +"000000000"+ phoneStr //replace zeros wuith campus general number 
-            return phoneStr;
-            break;
-        case KL:
-            phoneStr = "+" +"000000000"+ phoneStr //replace zeros wuith campus general number
-            return phoneStr;
-        break;
-    }
- 
-    }
-}
-//User s = new User();
-public class User{
-    private String id;
-    private String name;
-    private String familyName;
-    private Date birthday;
-    private Domain domain;
-    protected User(){
-    }
-    protected User(id,domain,name,familyName){
-    setName(name);
-    setfamilyName(familyName);
-    this.id = id;
-    this.domain = domain;
-    }
-    protected User(id,domain,name,familyName,birthday){
-    setName(name);
-    setfamilyName(familyName);
-    setBirthday(birthday);
-    this.id = id;
-    this.domain = domain;
-    }
+         public void setCredit(int c){
+             credit = c;
+         }
 
-public String getEmail(){
-    //merge the name and thhings to make the full email//
-    switch (domain){
-        case STUDENT:
-        return name + "." + familyName + "@hsrw.org";
-        case STAFF:
-        return name + "." + familyName + "@hochschule-rhein-waal.de";
-        default:
-        return null;
-        break;
-    }
-   // return name + "." + familyName +"@hsrw.org";
-}
-public String getFQUN(){
-   
-    switch (domain){
-        case STUDENT:
-        return id + "@" + domain + ".hsrw";
-        case STAFF:
-        return  id + "@" + domain + ".hsrw";
-        default:
-        return null;
-        break;
-    }
- 
-}
+        }
+        public class Classroom{
+            private String id;
+            private Course course;
+            Set<Student> participant = new HashSet<Student> (); 
+           // private Student[] participant;
+            private String room;
+            private String term;
 
-public String getName(){
-    return name;
-}
-public void setName(String s){
-    name = s;
-}
+            private Classroom(){}
+            public Classroom(Course,room){}
+            public Classroom(Course,room,Date){}
+            
+            public Course getCourse(){
+                return course;
+            
+            } 
+            public String getRoom(){
+                return room;
+            }
+            public void setRoom(String r){
+                room =r;
+            }
+            public String getTerm(){
+                return term;
+            }
+            public String getID(){
+                return id;
+            }
+            public void addStudent(Student s){
+                participant.add(s);
+            }
+            public String getParticipantsEmail(){
+                 String allEmail;
+                 Iterator<Student> it = participant.iterator();
+                 Student thisStudent= null;
+                while(it.hasNext()){
 
-public String getFamilyName(){
-    return familyName;
-}
-public void setFamilyName(String s){
-    familyName = s;
-}
+                   thisStudent = it.next();
+                   thisEmail= thisStudent.getEmail;
+                   allEmail = allEmail + thisEmail + ",";
 
-public int getID(){
-    return id;
-}
+                }
+                return allEmail;
+            }
 
-public Date getBirthday(){
-    return birthday;
-}
-public void setBirthday(Date d){
-birthday =  d;
-}
-}
+
+
+        }
