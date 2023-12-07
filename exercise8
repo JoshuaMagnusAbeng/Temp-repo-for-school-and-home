@@ -1,0 +1,55 @@
+public boolean isParticipating(Student s){
+    Iterator<Student> it = participant.iterator();
+    Student thisStudent= null;
+   while(it.hasNext()){
+      
+       thisStudent= it.next();
+
+       if(thisStudent==s){
+        return true;
+       }
+    }
+}
+
+public void removeStudent(Student s){
+    Iterator<Student> it = participant.iterator();
+    Student thisStudent= null;
+   while(it.hasNext()){
+      
+       thisStudent= it.next();
+
+       if(thisStudent==s){
+        it.remove();
+        return;
+       }
+    }
+}
+
+public void removeAllParticipants(){
+    Iterator<Student> it = participant.iterator();
+    Student thisStudent= null;
+   while(it.hasNext()){
+      
+       it.remove();
+    }
+}  
+
+
+
+public void addStudent(Student s){
+    Iterator<Student> it = participant.iterator();
+    Student thisStudent= null;
+    int noOfOccourence=0;
+   while(it.hasNext()){
+      
+       thisStudent= it.next();
+
+       if(thisStudent==s){
+        noOfOccourence++;
+       }
+    }
+    if(noOfOccourence==0){
+      participant.add(); 
+    }
+}
+      
